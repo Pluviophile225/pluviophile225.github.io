@@ -1,6 +1,6 @@
 # Routes
 
-![1592454741275-a82a3279-5069-4052-b24d-c66e4bae8354](./assets/1592454741275-a82a3279-5069-4052-b24d-c66e4bae8354-1678796912929-5.svg)
+![1592454741275-a82a3279-5069-4052-b24d-c66e4bae8354](../assets/1592454741275-a82a3279-5069-4052-b24d-c66e4bae8354-1678796912929-5.svg)
 
 ## 流程梳理
 
@@ -28,7 +28,7 @@
 
 ### 访问流程
 
-![image-20230227135416725](./assets/image-20230227135416725.png)
+![image-20230227135416725](../assets/image-20230227135416725.png)
 
 首先调用先到了Aggregation API Server，这个API Server会根据内容进行转发，可能会把内容交给Custom API Server进行处理，如果是Kubernetes内部的东西，会直接走Master 这个API Server，如果是用户自己扩展的东西，会走Extension Server这个API Server，再由最后走到的API Server交给他的FullHandlerChain（内部就是包装后的director，director内部就是两个分支，分别给NonGoRestfulMux和GoRestfulContainer）来进行处理。
 
