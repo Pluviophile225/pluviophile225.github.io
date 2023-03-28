@@ -1,0 +1,5 @@
+baseURL = 'http://pluviophile225.github.io/'
+languageCode = 'en-us'
+title = 'pluviophile225'
+BookSection = 'docs'
+theme = "hugo-book"
