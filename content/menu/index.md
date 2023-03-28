@@ -9,7 +9,7 @@ headless: true
 
 - **k8s相关**
   - [kubernetes基本概念]({{< relref "/docs/kubernetes基本概念.md" >}})
-  
+  - [clinet-go]({{< relref "/docs/client-go.md" >}})
   - [read]({{< relref "/docs/read.md" >}})
 <br />
 
