@@ -5,7 +5,7 @@
 - ClientSet：负责操作Kubernetes内置的资源对象，例如：Pod、Service等。
 - DynamicClient：动态客户端，可以对任意的Kubernetes资源对象进行通用操作，包括CRD。
 
-![image-20230308134707881](./assets/image-20230308134707881.png)
+![image-20230308134707881](../assets/image-20230308134707881.png)
 
 # RESTClient
 
@@ -37,7 +37,7 @@ func main() {
 	*/
 
 	// 1. 加载配置文件，生成 config 对象
-	config, err := clientcmd.BuildConfigFromFlags("", "./kubeconfig")
+	config, err := clientcmd.BuildConfigFromFlags("", "../kubeconfig")
 	if err != nil {
 		panic(err.Error())
 	}
@@ -128,7 +128,7 @@ import (
 func main() {
 
 	// 1. 加载配置文件，生成config对象
-	config, err := clientcmd.BuildConfigFromFlags("", "./kubeconfig")
+	config, err := clientcmd.BuildConfigFromFlags("", "../kubeconfig")
 	if err != nil {
 		panic(err.Error())
 	}
@@ -265,7 +265,7 @@ import (
 
 func main() {
 	// 1. 加载配置文件，生成 config 对象
-	config, err := clientcmd.BuildConfigFromFlags("", "./kubeconfig")
+	config, err := clientcmd.BuildConfigFromFlags("", "../kubeconfig")
 	if err != nil {
 		panic(err.Error())
 	}
@@ -406,7 +406,7 @@ import (
 func main() {
 
 	// 1. 加载配置文件，生成 config 对象
-	config, err := clientcmd.BuildConfigFromFlags("", "./kubeconfig")
+	config, err := clientcmd.BuildConfigFromFlags("", "../kubeconfig")
 	if err != nil {
 		panic(err.Error())
 	}
@@ -559,13 +559,13 @@ import (
 func main() {
 
 	// 1. 加载配置文件，生成config对象
-	config, err := clientcmd.BuildConfigFromFlags("", "./kubeconfig")
+	config, err := clientcmd.BuildConfigFromFlags("", "../kubeconfig")
 	if err != nil {
 		panic(err.Error())
 	}
 
 	// 2. 实例化客户端，本客户端负责将 GVR 数据，缓存到本地文件中的。
-	cacheDiscoveryClient, err := disk.NewCachedDiscoveryClientForConfig(config, "./cache/discovery", "./cache/http", time.Minute*60)
+	cacheDiscoveryClient, err := disk.NewCachedDiscoveryClientForConfig(config, "../cache/discovery", "../cache/http", time.Minute*60)
 	if err != nil {
 		panic(err.Error())
 	}
@@ -588,7 +588,7 @@ func main() {
 
 # Informer机制
 
-![image-20230310113419637](./assets/image-20230310113419637.png)
+![image-20230310113419637](../assets/image-20230310113419637.png)
 
 Informer负责与Kubernetes APIServer进行Watch操作，可以是Kubernetes内置资源对象，也可以是CRD。
 
@@ -624,7 +624,7 @@ import (
 
 func main() {
 	// 1.加载配置，生成 config 对象
-	config, err := clientcmd.BuildConfigFromFlags("", "./kubeconfig")
+	config, err := clientcmd.BuildConfigFromFlags("", "../kubeconfig")
 	if err != nil {
 		panic(err.Error())
 	}
@@ -653,7 +653,7 @@ func main() {
 }
 ```
 
-![image-20230310133010044](./assets/image-20230310133010044.png)
+![image-20230310133010044](../assets/image-20230310133010044.png)
 
 ## Reflector
 
@@ -874,7 +874,7 @@ import (
 
 func main() {
 	// 使用 ClientSet 来演示 sharedInformer
-	config, err := clientcmd.BuildConfigFromFlags("", "./kubeconfig")
+	config, err := clientcmd.BuildConfigFromFlags("", "../kubeconfig")
 	if err != nil {
 		panic(err.Error())
 	}
@@ -932,7 +932,7 @@ type Clients struct {
 func NewClients() (clients Clients) {
 
 	// 1. 加载配置,生成配置文件对象
-	config, err := clientcmd.BuildConfigFromFlags("", "./kubeconfig")
+	config, err := clientcmd.BuildConfigFromFlags("", "../kubeconfig")
 	if err != nil {
 		panic(err.Error())
 	}

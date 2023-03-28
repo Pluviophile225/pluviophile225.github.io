@@ -1,6 +1,6 @@
 # Kubernetes API 基本概念
 
-![image-20230304151526319](./assets/image-20230304151526319.png)
+![image-20230304151526319](../assets/image-20230304151526319.png)
 
 ## Resource
 
@@ -35,15 +35,15 @@ Group和Version共同构成了apiVersion这一概念，格式为group/version，
 
 “狮子”，“大象”等动物类型等同于它们的“Kind”
 
-![image-20230304153302471](./assets/image-20230304153302471.png)
+![image-20230304153302471](../assets/image-20230304153302471.png)
 
 > Kind的三种类型（Type）
 
-![image-20230304153436423](./assets/image-20230304153436423.png)
+![image-20230304153436423](../assets/image-20230304153436423.png)
 
 Object：该type下kind的实例代表存储的实体
 
-![image-20230304153610955](./assets/image-20230304153610955.png)
+![image-20230304153610955](../assets/image-20230304153610955.png)
 
 List：该type下kind的实例代表一组实体
 
@@ -55,7 +55,7 @@ List类型的Kind名字是以List结尾，它代表一个类型，该类型的�
 
 Simple Kind：该type下kind的实例一般都是那些临时用一用，虚拟的，不会单独实际存储的实体
 
-![image-20230304154424186](./assets/image-20230304154424186.png)
+![image-20230304154424186](../assets/image-20230304154424186.png)
 
 ## CRD
 
@@ -77,13 +77,13 @@ CRD自身也是一个API Object（Kind里的Object分类），其GVK为：apiext
 
 用Golang实现一个CA-Certificate Authority，可以签发X509证书
 
-![image-20230306100603399](./assets/image-20230306100603399.png)
+![image-20230306100603399](../assets/image-20230306100603399.png)
 
-![image-20230306100927597](./assets/image-20230306100927597.png)
+![image-20230306100927597](../assets/image-20230306100927597.png)
 
 初始化工程
 
-![image-20230306101240248](./assets/image-20230306101240248.png)
+![image-20230306101240248](../assets/image-20230306101240248.png)
 
 ## Http Server
 
@@ -492,7 +492,7 @@ func (ca *CertificateAuthority) SignX509(csr *CertificateSigningRequest) (*Certi
 
 2、mTLS是首选，证书验证完成了“登录”；证书中信息可以用来鉴权；顺便把传输加密也做了
 
-![image-20230307112837729](./assets/image-20230307112837729.png)
+![image-20230307112837729](../assets/image-20230307112837729.png)
 
 步骤：
 
@@ -503,9 +503,9 @@ func (ca *CertificateAuthority) SignX509(csr *CertificateSigningRequest) (*Certi
 
 > mTLS所用证书从哪里来 - dapr项目的做法
 
-![image-20230307123735712](./assets/image-20230307123735712.png)
+![image-20230307123735712](../assets/image-20230307123735712.png)
 
-![image-20230307123925229](./assets/image-20230307123925229.png)
+![image-20230307123925229](../assets/image-20230307123925229.png)
 
 ## gRPC
 
@@ -777,7 +777,7 @@ func createTLSCredentials() (credentials.TransportCredentials, error) {
 
 整个流程如下
 
-![image-20230307192617031](./assets/image-20230307192617031.png)
+![image-20230307192617031](../assets/image-20230307192617031.png)
 
 ## 写好Dockerfile
 
@@ -803,7 +803,7 @@ RUN mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
 
 EXPOSE 8112
 
-CMD ["./myca","caserver","--grpc=false","--mtls=false"]
+CMD ["../myca","caserver","--grpc=false","--mtls=false"]
 ```
 
 运行build指令

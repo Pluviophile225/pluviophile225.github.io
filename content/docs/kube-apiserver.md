@@ -18,25 +18,25 @@ go install github.com/go-delve/delve/cmd/dlv@latest
 >
 > -gcflags="all=-N -l" 禁止优化和内联
 
-![image-20230221160322143](./assets/image-20230221160322143.png)
+![image-20230221160322143](../assets/image-20230221160322143.png)
 
 > 修改build_binaries()函数
 
-![image-20230222131715168](./assets/image-20230222131715168.png)
+![image-20230222131715168](../assets/image-20230222131715168.png)
 
 2、启动本地集群
 
 用`make clean`清除未编译的可执行程序。通过`hack/local-up-cluster.sh`脚本启动本地集群
 
-![image-20230221161202237](./assets/image-20230221161202237.png)
+![image-20230221161202237](../assets/image-20230221161202237.png)
 
-![image-20230221162014324](./assets/image-20230221162014324.png)
+![image-20230221162014324](../assets/image-20230221162014324.png)
 
 可以看到起来了这些组件
 
 3、重启API Server
 
-![image-20230221162943255](./assets/image-20230221162943255.png)
+![image-20230221162943255](../assets/image-20230221162943255.png)
 
 ```text
 sudo dlv --headless exec /home/kubernetes/go/src/k8s.io/kubernetes/_output/local/bin/linux/amd64/kube-apiserver --listen=:12345 --api-version=2 --log --log-output=debugger,gdbwire,lldbout,debuglineerr,rpc,dap,fncall,minidump --log-dest=/home/kubernetes/delve-log/log -- --authorization-mode=Node,RBAC  --cloud-provider= --cloud-config=   --v=3 --vmodule= --audit-policy-file=/tmp/kube-audit-policy-file --audit-log-path=/tmp/kube-apiserver-audit.log --authorization-webhook-config-file= --authentication-token-webhook-config-file= --cert-dir=/var/run/kubernetes --egress-selector-config-file=/tmp/kube_egress_selector_configuration.yaml --client-ca-file=/var/run/kubernetes/client-ca.crt --kubelet-client-certificate=/var/run/kubernetes/client-kube-apiserver.crt --kubelet-client-key=/var/run/kubernetes/client-kube-apiserver.key --service-account-key-file=/tmp/kube-serviceaccount.key --service-account-lookup=true --service-account-issuer=https://kubernetes.default.svc --service-account-jwks-uri=https://kubernetes.default.svc/openid/v1/jwks --service-account-signing-key-file=/tmp/kube-serviceaccount.key --enable-admission-plugins=NamespaceLifecycle,LimitRanger,ServiceAccount,DefaultStorageClass,DefaultTolerationSeconds,Priority,MutatingAdmissionWebhook,ValidatingAdmissionWebhook,ResourceQuota,NodeRestriction --disable-admission-plugins= --admission-control-config-file= --bind-address=0.0.0.0 --secure-port=6443 --tls-cert-file=/var/run/kubernetes/serving-kube-apiserver.crt --tls-private-key-file=/var/run/kubernetes/serving-kube-apiserver.key --storage-backend=etcd3 --storage-media-type=application/vnd.kubernetes.protobuf --etcd-servers=http://127.0.0.1:2379 --service-cluster-ip-range=10.0.0.0/24 --feature-gates=AllAlpha=false --external-hostname=localhost --requestheader-username-headers=X-Remote-User --requestheader-group-headers=X-Remote-Group --requestheader-extra-headers-prefix=X-Remote-Extra- --requestheader-client-ca-file=/var/run/kubernetes/request-header-ca.crt --requestheader-allowed-names=system:auth-proxy --proxy-client-cert-file=/var/run/kubernetes/client-auth-proxy.crt --proxy-client-key-file=/var/run/kubernetes/client-auth-proxy.key --cors-allowed-origins="/127.0.0.1(:[0-9]+)?$,/localhost(:[0-9]+)?$"
@@ -46,23 +46,23 @@ sudo dlv --headless exec /home/kubernetes/go/src/k8s.io/kubernetes/_output/local
 
  接着关掉API Server
 
-![image-20230221202102287](./assets/image-20230221202102287.png)
+![image-20230221202102287](../assets/image-20230221202102287.png)
 
 验证一下结果
 
-![image-20230221202127972](./assets/image-20230221202127972.png)
+![image-20230221202127972](../assets/image-20230221202127972.png)
 
-![image-20230222130811029](./assets/image-20230222130811029.png)
+![image-20230222130811029](../assets/image-20230222130811029.png)
 
 再加上log的目标地址等等
 
 4、连接Debug Server
 
-![image-20230222135449730](./assets/image-20230222135449730.png)
+![image-20230222135449730](../assets/image-20230222135449730.png)
 
 #### 命令行中调试
 
-![image-20230222135705964](./assets/image-20230222135705964.png)
+![image-20230222135705964](../assets/image-20230222135705964.png)
 
 #### VS Code中调试
 
@@ -105,33 +105,33 @@ source ~/.bash_profile
 
 1、建立Service Account
 
-![image-20230222171823777](./assets/image-20230222171823777.png)
+![image-20230222171823777](../assets/image-20230222171823777.png)
 
-![image-20230222171859257](./assets/image-20230222171859257.png)
+![image-20230222171859257](../assets/image-20230222171859257.png)
 
 2、建立Secret（>=1.24）
 
 新建一个secret
 
-![image-20230222172445176](./assets/image-20230222172445176.png)
+![image-20230222172445176](../assets/image-20230222172445176.png)
 
 创建这个secret
 
-![image-20230222172658679](./assets/image-20230222172658679.png)
+![image-20230222172658679](../assets/image-20230222172658679.png)
 
-![image-20230222172732090](./assets/image-20230222172732090.png)
+![image-20230222172732090](../assets/image-20230222172732090.png)
 
-![image-20230222172826048](./assets/image-20230222172826048.png)
+![image-20230222172826048](../assets/image-20230222172826048.png)
 
 3、建立ClusterRole
 
 先查看有哪些权限
 
-![image-20230222172934310](./assets/image-20230222172934310.png)
+![image-20230222172934310](../assets/image-20230222172934310.png)
 
 然后创建一个rolebinding来使得forpostman拥有权限
 
-![image-20230222173419088](./assets/image-20230222173419088.png)
+![image-20230222173419088](../assets/image-20230222173419088.png)
 
 4、获取Secret中Token
 
@@ -139,7 +139,7 @@ source ~/.bash_profile
 cluster/kubectl.sh get secret postman-sa-secret -o jsonpath="{.data['ca\.crt']}" | base64 -d > /tmp/ca.crt
 ```
 
-![image-20230222174152383](./assets/image-20230222174152383.png)
+![image-20230222174152383](../assets/image-20230222174152383.png)
 
 5、提取Secret中证书
 
@@ -149,9 +149,9 @@ cluster/kubectl.sh get secret postman-sa-secret -o jsonpath="{.data['ca\.crt']}"
 
 查看secret的token并放入postman中
 
-![image-20230222195957412](./assets/image-20230222195957412.png)
+![image-20230222195957412](../assets/image-20230222195957412.png)
 
-![image-20230222200353320](./assets/image-20230222200353320.png)
+![image-20230222200353320](../assets/image-20230222200353320.png)
 
 在postman中添加证书
 
@@ -159,23 +159,23 @@ cluster/kubectl.sh get secret postman-sa-secret -o jsonpath="{.data['ca\.crt']}"
 
 ### 源码重要文件夹
 
-> ./cmd/kube-apiserver
+> ../cmd/kube-apiserver
 
 API Server可执行程序的主入口，基于cobra，主要负责接受命令行参数，把api server启动起来。也是代码学习的入口
 
-> ./pkg
+> ../pkg
 
 大部分k8s的源码所在地，除了被抽离为单独组件的部分。例如api server的代码，proxy组件的代码，kubelet组件的代码等等
 
-> ./plugin
+> ../plugin
 
 Kubernetes内建的plugin实现，包含admission和auth两个部分
 
-> ./vender/k8s.io 和 ./staging/src/k8s.io
+> ../vender/k8s.io 和 ../staging/src/k8s.io
 
 Vendor机制是老一代依赖包管理机制，module是新一代，不过vendor目录存在的话还是会被优先使用；staging中包含正在被单独抽离的组件，软引用到vendor下
 
-> ./pkg/api 和 ./pkg/apis
+> ../pkg/api 和 ../pkg/apis
 
 Api文件夹下包含和OpenAPI相关的模型定义等内容，用于根据OpenAPI规范形成符合其规定的API 而apis是包含内建API Groups和API Objects的，和scheme相关的代码大部分在这里
 
@@ -251,7 +251,7 @@ func main() {
 
 可以看到cli的run主要就是调用了Cobra的execute函数
 
-![image-20230223162910084](./assets/image-20230223162910084.png)
+![image-20230223162910084](../assets/image-20230223162910084.png)
 
 ```go
 func NewAPIServerCommand() *cobra.Command {
@@ -323,7 +323,7 @@ cluster's shared state through which all other components interact.`,
 
 命令行参数->配置参数->Server
 
-![image-20230223190156701](./assets/image-20230223190156701.png)
+![image-20230223190156701](../assets/image-20230223190156701.png)
 
 #### Server Chain
 
@@ -433,11 +433,11 @@ func CreateKubeAPIServer(kubeAPIServerConfig *controlplane.Config, delegateAPISe
 }
 ```
 
-![image-20230227154642054](./assets/image-20230227154642054.png)
+![image-20230227154642054](../assets/image-20230227154642054.png)
 
 #### 在Master中装载“API”
 
-![image-20230223192322615](./assets/image-20230223192322615.png)
+![image-20230223192322615](../assets/image-20230223192322615.png)
 
 ```markdown
 * completedConfig.New()方法
@@ -467,7 +467,7 @@ func CreateKubeAPIServer(kubeAPIServerConfig *controlplane.Config, delegateAPISe
 
 这个方法new出来的是什么呢？
 
-![image-20230223194356661](./assets/image-20230223194356661.png)
+![image-20230223194356661](../assets/image-20230223194356661.png)
 
 这个Instance就是MasterAPI的一个代名词
 
@@ -752,7 +752,7 @@ func (m *Instance) InstallAPIs(apiResourceConfigSource serverstorage.APIResource
 
 #### 构造并填充Scheme
 
-![image-20230223195940390](./assets/image-20230223195940390.png)
+![image-20230223195940390](../assets/image-20230223195940390.png)
 
 ```markdown
 * Scheme相当于Windows的注册表里面会存储当前API Server所知道的所有API Group
@@ -767,13 +767,13 @@ func (m *Instance) InstallAPIs(apiResourceConfigSource serverstorage.APIResource
 
 在Server.go中的导入里找到这个controlplane
 
-![image-20230223200454567](./assets/image-20230223200454567.png)
+![image-20230223200454567](../assets/image-20230223200454567.png)
 
-![image-20230223200631836](./assets/image-20230223200631836.png)
+![image-20230223200631836](../assets/image-20230223200631836.png)
 
 点进去可以找到这个import_known_version.go的内容
 
-![image-20230223200658571](./assets/image-20230223200658571.png)
+![image-20230223200658571](../assets/image-20230223200658571.png)
 
 这个文件本身没有什么东西，它只负责导入，每个导入都是install的方法。都是API Group的install。其中core就是LegacyAPIGroup的内容。我们打开apps/install的这个包
 
@@ -851,9 +851,9 @@ API Object有诸多属性，使用者在操作一个object时，不太可能给�
 
 所有外部Version都会被转化为内部Version，转换函数是记录在scheme之内的
 
-![image-20230223214835373](./assets/image-20230223214835373.png)
+![image-20230223214835373](../assets/image-20230223214835373.png)
 
-![image-20230223215634456](./assets/image-20230223215634456.png)
+![image-20230223215634456](../assets/image-20230223215634456.png)
 
 
 
@@ -861,7 +861,7 @@ API Object有诸多属性，使用者在操作一个object时，不太可能给�
 
 ##### Builder设计模式
 
-![image-20230226195323376](./assets/image-20230226195323376.png)
+![image-20230226195323376](../assets/image-20230226195323376.png)
 
 ```markdown
 ** Director: 负责构建，组装的逻辑，调换不同的Director，可以用相同的部件组件出产品
@@ -872,7 +872,7 @@ Product: 建造产物
 
 ##### Build - Kubernetes API Server的实现
 
-![image-20230226201737364](./assets/image-20230226201737364.png)
+![image-20230226201737364](../assets/image-20230226201737364.png)
 
 ```markdown
 ** 
@@ -1053,7 +1053,7 @@ func NewSchemeBuilder(funcs ...func(*Scheme) error) SchemeBuilder {
 
 #### External Version的注册
 
-![image-20230227124430401](./assets/image-20230227124430401.png)
+![image-20230227124430401](../assets/image-20230227124430401.png)
 
 ```markdown
 ** 在pkg/apis/apps里面的install.go和register.go
@@ -1111,7 +1111,7 @@ func init() {
 go没有类的继承，所以没法像java一样整出一个父类来继承。
 ```
 
-![image-20230227130156276](./assets/image-20230227130156276.png)
+![image-20230227130156276](../assets/image-20230227130156276.png)
 
 1. 在doc.go里面添加注释
 
@@ -1147,11 +1147,11 @@ go没有类的继承，所以没法像java一样整出一个父类来继承。
 
 2. 这样就会生成zz_generated.conversion.go和zz_generated.defaults.go
 
-   ![image-20230227131430626](./assets/image-20230227131430626.png)
+   ![image-20230227131430626](../assets/image-20230227131430626.png)
 
 3. 手写补充一些转换的代码（比如这里放在了defaults.go中）
 
-![image-20230227131503273](./assets/image-20230227131503273.png)
+![image-20230227131503273](../assets/image-20230227131503273.png)
 
 ### Generic Server
 
@@ -1163,7 +1163,7 @@ go没有类的继承，所以没法像java一样整出一个父类来继承。
 - Mux:请求的路由，把url映射到handler
 - Handler func（函数签名有要求）
 
-![image-20230227140857821](./assets/image-20230227140857821.png)
+![image-20230227140857821](../assets/image-20230227140857821.png)
 
 ```markdown
 ** 
@@ -1179,7 +1179,7 @@ go没有类的继承，所以没法像java一样整出一个父类来继承。
 - Route：url、http method和handler的三元组
 - WebService：一组route构成一个WS，一个WS内的route具有相同的rootPath（可以理解为url前半部分一样）
 
-![image-20230227142811000](./assets/image-20230227142811000.png)
+![image-20230227142811000](../assets/image-20230227142811000.png)
 
 #### Generic Server的定位
 
@@ -1201,7 +1201,7 @@ go没有类的继承，所以没法像java一样整出一个父类来继承。
 
 每个Generic Server最重要的输出是一个叫Director的东西，它本质上是一个`mux`和一个`go container`的组合，所有的`http request`最终都是被这些`Director`处理的。
 
-![image-20230227135416725](./assets/image-20230227135416725.png)
+![image-20230227135416725](../assets/image-20230227135416725.png)
 
 ```markdown
 ** 
@@ -1215,7 +1215,7 @@ Custom Server是用户写的，Aggregation是通过Proxy代理来进行路由的
 
 > 装配入口：kubernetes\staging\src\k8s.io\apiserver\pkg\server\config.go -> New(...)
 
-![image-20230227143335206](./assets/image-20230227143335206.png)
+![image-20230227143335206](../assets/image-20230227143335206.png)
 
 
 
@@ -1340,17 +1340,17 @@ handlerChainBuilder := func(handler http.Handler) http.Handler {
 
 > kubernetes\staging\src\k8s.io\apiserver\pkg\server\config.go
 
-![image-20230227150108849](./assets/image-20230227150108849.png)
+![image-20230227150108849](../assets/image-20230227150108849.png)
 
 具体的实现如下：
 
-![image-20230227150146273](./assets/image-20230227150146273.png)
+![image-20230227150146273](../assets/image-20230227150146273.png)
 
 这些其实就是登录鉴权的处理，利用了装饰器模式，把`request`的处理包含在了这个`request`的外层。
 
 #### Server的装配 - Server链条的形成
 
-![image-20230227194418897](./assets/image-20230227194418897.png)
+![image-20230227194418897](../assets/image-20230227194418897.png)
 
 ```markdown
 **
@@ -1375,13 +1375,13 @@ handlerChainBuilder := func(handler http.Handler) http.Handler {
 
 > OpenAPI的地方
 
-![image-20230228153104491](./assets/image-20230228153104491.png)
+![image-20230228153104491](../assets/image-20230228153104491.png)
 
 可以看到，在目录的`api/openapi-spec`下面
 
 这份文档比较重要，可以找到所有操作的`url`的方式、参数等等
 
-![image-20230228153145679](./assets/image-20230228153145679.png)
+![image-20230228153145679](../assets/image-20230228153145679.png)
 
 找到`swagger.json`文件
 
@@ -1391,17 +1391,17 @@ swagger.json文件定义了kubernetes对外提供的restful service，客户端�
 在这里，可以看到绝大多数当前版本内建的API Object，并且每个外部版本+API Object的组合拥有一套swagger中的一套定义。
 ```
 
-![image-20230228153924902](./assets/image-20230228153924902.png)
+![image-20230228153924902](../assets/image-20230228153924902.png)
 
 > Definition
 
-![image-20230228160217906](./assets/image-20230228160217906.png)
+![image-20230228160217906](../assets/image-20230228160217906.png)
 
 描述了每个API Object可以有怎么样的属性。
 
 > Path
 
-![image-20230228160508131](./assets/image-20230228160508131.png)
+![image-20230228160508131](../assets/image-20230228160508131.png)
 
 决定了向API Server发请求的时候需要向哪一个url发送请求。在`url`下支持的方法。
 
@@ -1413,17 +1413,17 @@ swagger.json文件定义了kubernetes对外提供的restful service，客户端�
 
 比如在`kubernetes\staging\src\k8s.io\api\apps\v1\doc.go`
 
-![image-20230228161200727](./assets/image-20230228161200727.png)
+![image-20230228161200727](../assets/image-20230228161200727.png)
 
 在这个注解中，就标明了这个需不需要生成`openapi`内容
 
 接着在`kubernetes/staging/src/k8s.io/api/apps/v1/types.go`目录下定义这个API Object的所有属性
 
-![image-20230228161836252](./assets/image-20230228161836252.png)
+![image-20230228161836252](../assets/image-20230228161836252.png)
 
 最后通过这两个文件生成了`kubernetes\pkg\generated\openapi\zz_generated.openapi.go`这个自动生成文件
 
-![image-20230228162146381](./assets/image-20230228162146381.png)
+![image-20230228162146381](../assets/image-20230228162146381.png)
 
 详细解释一下这个`zz_generated.openapi.go`这个文件
 
@@ -1431,11 +1431,11 @@ swagger.json文件定义了kubernetes对外提供的restful service，客户端�
 
 `kubernetes\pkg\generated\openapi`
 
-![image-20230228162520711](./assets/image-20230228162520711.png)
+![image-20230228162520711](../assets/image-20230228162520711.png)
 
 > GetOpenAPIDefinition
 
-![image-20230228162627709](./assets/image-20230228162627709.png)
+![image-20230228162627709](../assets/image-20230228162627709.png)
 
 `把一个字符串所代表的一个Object映射成这个API Object在这个swagger里面的schema`
 
@@ -1447,7 +1447,7 @@ swagger.json文件定义了kubernetes对外提供的restful service，客户端�
 
 > 函数调用
 
-![image-20230228162824781](./assets/image-20230228162824781.png)
+![image-20230228162824781](../assets/image-20230228162824781.png)
 
 把传入的`ref`拿过来，去返回一个schema。这是OpenAPI的definition，程序会为这个Schema生成swagger.json里面的内容。
 
@@ -1464,13 +1464,13 @@ swagger.json文件定义了kubernetes对外提供的restful service，客户端�
 
 生成的`GetOpenAPIDefinitons`会被交给`GenericServer`的`OpenAPIConfig`中去
 
-![image-20230228164239577](./assets/image-20230228164239577.png)
+![image-20230228164239577](../assets/image-20230228164239577.png)
 
-![image-20230228165035197](./assets/image-20230228165035197.png)
+![image-20230228165035197](../assets/image-20230228165035197.png)
 
 #### Server的装配 - API Resource的装载
 
-![image-20230228195022227](./assets/image-20230228195022227.png)
+![image-20230228195022227](../assets/image-20230228195022227.png)
 
 ##### registerResourceHandlers
 
@@ -1480,7 +1480,7 @@ swagger.json文件定义了kubernetes对外提供的restful service，客户端�
 
   `vendor/k8s.io/apiserver/pkg/endpoints/groupversion.go`
 
-  ![image-20230228195829744](./assets/image-20230228195829744.png)
+  ![image-20230228195829744](../assets/image-20230228195829744.png)
 
 - path string
 
@@ -1488,9 +1488,9 @@ swagger.json文件定义了kubernetes对外提供的restful service，客户端�
 
   `vendor/k8s.io/apiserver/pkg/registry/generic/registry/store.go`
 
-  ![image-20230228195841407](./assets/image-20230228195841407.png)
+  ![image-20230228195841407](../assets/image-20230228195841407.png)
 
-  ![image-20230228200005206](./assets/image-20230228200005206.png)
+  ![image-20230228200005206](../assets/image-20230228200005206.png)
 
 - ws *restful.WebService
 
@@ -1500,7 +1500,7 @@ swagger.json文件定义了kubernetes对外提供的restful service，客户端�
 
 3. 根据传入的storage对象实现的接口，确定支持的各种操作（verbs）
 
-   ![image-20230228201708759](./assets/image-20230228201708759.png)
+   ![image-20230228201708759](../assets/image-20230228201708759.png)
 
 4. 创建ListOptions，CreateOptions，PatchOptions，UpdateOptions以及其它各种options
 
@@ -1510,17 +1510,17 @@ swagger.json文件定义了kubernetes对外提供的restful service，客户端�
 
    这个是有**namespace**的情况
 
-   ![image-20230228202155851](./assets/image-20230228202155851.png)
+   ![image-20230228202155851](../assets/image-20230228202155851.png)
 
    这个是没有**namespace**的情况
 
-   ![image-20230228202541589](./assets/image-20230228202541589.png)
+   ![image-20230228202541589](../assets/image-20230228202541589.png)
 
 7. 决定放入etcd时使用的version；以及从etcd取出时可以转化为的version
 
    计算向etcd写入（encode）使用的version和读出（decode）时可转换为的version
 
-   ![image-20230228202633345](./assets/image-20230228202633345.png)
+   ![image-20230228202633345](../assets/image-20230228202633345.png)
 
 8. 生成ResourceInfo，备返回
 
@@ -1532,13 +1532,13 @@ swagger.json文件定义了kubernetes对外提供的restful service，客户端�
 
 12. 逐个处理Actions list中的action，基于reqScope等属性，为他们生成route并注册到webservice中去
 
-    ![image-20230228202912661](./assets/image-20230228202912661.png)
+    ![image-20230228202912661](../assets/image-20230228202912661.png)
 
 13. 更新apiResource，备返回
 
 #### HTTP Server的启动
 
-![image-20230228203650600](./assets/image-20230228203650600.png)
+![image-20230228203650600](../assets/image-20230228203650600.png)
 
 ```markdown
 **
@@ -1552,7 +1552,7 @@ SecureServingInfo.Serve() HTTP2.0设置，TLS设置，启动Server。
 
 ##### Server内生命周期状态流转preparedGenericAPIServer.Run()
 
-![image-20230301132209771](./assets/image-20230301132209771.png)
+![image-20230301132209771](../assets/image-20230301132209771.png)
 
 ```markdown
 **
@@ -1565,15 +1565,15 @@ Mux就是所有的API Object都已经向Mux里面注册了，Discovery就是那�
 
 ##### NonBlockingRun
 
-![image-20230301140751715](./assets/image-20230301140751715.png)
+![image-20230301140751715](../assets/image-20230301140751715.png)
 
 ### Master API Server
 
-![image-20230302112725880](./assets/image-20230302112725880.png)
+![image-20230302112725880](../assets/image-20230302112725880.png)
 
 #### Master Config的填写
 
-![image-20230302112908260](./assets/image-20230302112908260.png)
+![image-20230302112908260](../assets/image-20230302112908260.png)
 
 ```markdown
 **
@@ -1596,7 +1596,7 @@ Mux就是所有的API Object都已经向Mux里面注册了，Discovery就是那�
 	客户端向API Server发一个请求，可以带上OpenID机构提供的身份信息，API Server可以据此识别出用户。这里配置API Server所使用的OpenID机构信息
 ```
 
-![image-20230302122807103](./assets/image-20230302122807103.png)
+![image-20230302122807103](../assets/image-20230302122807103.png)
 
 ```markdown
 **
@@ -1609,7 +1609,7 @@ Mux就是所有的API Object都已经向Mux里面注册了，Discovery就是那�
 
 #### 准备Config
 
-![image-20230302130740966](./assets/image-20230302130740966.png)
+![image-20230302130740966](../assets/image-20230302130740966.png)
 
 ```markdown
 **
@@ -1628,7 +1628,7 @@ DiscoveryAddress的设置
 
 #### 创建Master Instance
 
-![image-20230302131208985](./assets/image-20230302131208985.png)
+![image-20230302131208985](../assets/image-20230302131208985.png)
 
 ### Extension API Server
 
@@ -1636,7 +1636,7 @@ DiscoveryAddress的设置
 
 > CRD - 可以定义其它API Object的API Object 
 
-![image-20230302134109172](./assets/image-20230302134109172.png)
+![image-20230302134109172](../assets/image-20230302134109172.png)
 
 > 对Server实现的影响
 
@@ -1644,7 +1644,7 @@ GenericServer所提供的installAPIGroup方法能够装载“静态”API Object
 
 #### 准备Config
 
-![image-20230302134545626](./assets/image-20230302134545626.png)
+![image-20230302134545626](../assets/image-20230302134545626.png)
 
 ```markdown
 ** 
@@ -1664,17 +1664,17 @@ GenericServer所提供的installAPIGroup方法能够装载“静态”API Object
 
 #### 创建Extension Instance
 
-![image-20230302154438738](./assets/image-20230302154438738.png)
+![image-20230302154438738](../assets/image-20230302154438738.png)
 
 ##### 单独看一下Custom Resource的API Handler
 
-![image-20230302155344156](./assets/image-20230302155344156.png)
+![image-20230302155344156](../assets/image-20230302155344156.png)
 
 ### Aggregation Server
 
 #### APIService - Aggregator的核心API Object
 
-![image-20230302165036376](./assets/image-20230302165036376.png)
+![image-20230302165036376](../assets/image-20230302165036376.png)
 
 > 在APIServiceSpec的结构体中的Service *ServiceReference
 >
@@ -1684,13 +1684,13 @@ GenericServer所提供的installAPIGroup方法能够装载“静态”API Object
 
 #### 准备Config
 
-![image-20230302165247300](./assets/image-20230302165247300.png)
+![image-20230302165247300](../assets/image-20230302165247300.png)
 
 #### 创建Aggregation Server
 
-![image-20230302165622531](./assets/image-20230302165622531.png)
+![image-20230302165622531](../assets/image-20230302165622531.png)
 
-![image-20230302171548220](./assets/image-20230302171548220.png)
+![image-20230302171548220](../assets/image-20230302171548220.png)
 
 ```markdown
 ** 
@@ -1767,11 +1767,11 @@ GenericServer所提供的installAPIGroup方法能够装载“静态”API Object
 
 #### APIAggregator.AddAPIService()方法
 
-![image-20230302200014988](./assets/image-20230302200014988.png)
+![image-20230302200014988](../assets/image-20230302200014988.png)
 
 ### Admission机制
 
-![image-20230303140825687](./assets/image-20230303140825687.png)
+![image-20230303140825687](../assets/image-20230303140825687.png)
 
 > API Server内建的各种Admission Plugin提供这些代码，使用者只可以启用或禁用某个Admission（无法影响一个Admission内部的逻辑）
 >
@@ -1779,17 +1779,17 @@ GenericServer所提供的installAPIGroup方法能够装载“静态”API Object
 
 #### Admission Plugin的装配
 
-![image-20230303141550316](./assets/image-20230303141550316.png)
+![image-20230303141550316](../assets/image-20230303141550316.png)
 
-![image-20230303142002261](./assets/image-20230303142002261.png)
+![image-20230303142002261](../assets/image-20230303142002261.png)
 
-![image-20230303142355777](./assets/image-20230303142355777.png)
+![image-20230303142355777](../assets/image-20230303142355777.png)
 
 > 以Update为例
 
-![image-20230303142657046](./assets/image-20230303142657046.png)
+![image-20230303142657046](../assets/image-20230303142657046.png)
 
-![image-20230303142818830](./assets/image-20230303142818830.png)
+![image-20230303142818830](../assets/image-20230303142818830.png)
 
 ### Http Req处理过程和Default Filters
 
@@ -1797,13 +1797,13 @@ GenericServer所提供的installAPIGroup方法能够装载“静态”API Object
 
 通过装饰器模式，我们在一个handler外围不断包裹针对不同方面的处理逻辑，从而形成请求响应的全部流程
 
-![image-20230303143417219](./assets/image-20230303143417219.png)
+![image-20230303143417219](../assets/image-20230303143417219.png)
 
-![image-20230303153235151](./assets/image-20230303153235151.png)
+![image-20230303153235151](../assets/image-20230303153235151.png)
 
 #### Default Filters
 
-![image-20230303153734638](./assets/image-20230303153734638.png)
+![image-20230303153734638](../assets/image-20230303153734638.png)
 
 ```markdown
 **
@@ -1832,27 +1832,27 @@ WithAuthorization 鉴权
 
 #### 编解码 - Http Payload与Go结构实例之间的转换
 
-![image-20230303210154332](./assets/image-20230303210154332.png)
+![image-20230303210154332](../assets/image-20230303210154332.png)
 
 #### Serializer的加载和使用
 
-![image-20230303210727525](./assets/image-20230303210727525.png)
+![image-20230303210727525](../assets/image-20230303210727525.png)
 
 1. 做一个reqScope
 
    `vendor\k8s.io\apiserver\pkg\endpoints\installer.go`
 
-   ![image-20230303210957797](./assets/image-20230303210957797.png)
+   ![image-20230303210957797](../assets/image-20230303210957797.png)
 
 2. 在制作req handler的时候，使用以上reqScope
 
-   ![image-20230303211057914](./assets/image-20230303211057914.png)
+   ![image-20230303211057914](../assets/image-20230303211057914.png)
 
 3. 在handler内使用Serializer得到encoder/decoder进行编解码
 
    `vendor\k8s.io\apiserver\pkg\endpoints\handlers\create.go`的`CreateHandler`方法
 
-   ![image-20230303211308645](./assets/image-20230303211308645.png)
+   ![image-20230303211308645](../assets/image-20230303211308645.png)
 
 #### 对Request进行响应的业务逻辑部分 - Store
 
@@ -1860,19 +1860,19 @@ WithAuthorization 鉴权
 
 上述REST结构体一般定义在API Object相应的`storage/storage.go`文件中；例如group“apps”的`deployment`如下图所示；该文件内还会有NewREST方法来构造并返回REST实例，包括子Object的
 
-![image-20230303212427450](./assets/image-20230303212427450.png)
+![image-20230303212427450](../assets/image-20230303212427450.png)
 
-![image-20230303212441265](./assets/image-20230303212441265.png)
+![image-20230303212441265](../assets/image-20230303212441265.png)
 
 Store是如何装载，最终为Request Handler所用，是非常类似Serizlizer和Admit的，也是在installAPIResources方法中。
 
-![image-20230303212736556](./assets/image-20230303212736556.png)
+![image-20230303212736556](../assets/image-20230303212736556.png)
 
 ##### 以Create 和 Update 为例
 
-![image-20230303213226611](./assets/image-20230303213226611.png)
+![image-20230303213226611](../assets/image-20230303213226611.png)
 
-![image-20230303213239821](./assets/image-20230303213239821.png)
+![image-20230303213239821](../assets/image-20230303213239821.png)
 
 ##### Request Handler使用Store来响应Http Request
 
@@ -1880,7 +1880,7 @@ Store是如何装载，最终为Request Handler所用，是非常类似Serizlize
 
 而Update（HTTP Put或Patch），就是在`/vendor/k8s.io/apiserver/pkg/endpoints/handlers/update.go`的UpdateHandler方法中
 
-![image-20230303213345495](./assets/image-20230303213345495.png)
+![image-20230303213345495](../assets/image-20230303213345495.png)
 
 ### 鉴权与登录
 
@@ -1934,22 +1934,22 @@ API Server支持的种类
 
 API Server把鉴权的工作交给一个web服务，server向该服务发送SubjectAccessReview对象，该服务做出判断并把结果附在SAR上传回
 
-![image-20230304132234126](./assets/image-20230304132234126.png)
+![image-20230304132234126](../assets/image-20230304132234126.png)
 
 #### 触发登录和鉴权 - 路径 1 Delegate机制
 
-![image-20230304132435111](./assets/image-20230304132435111.png)
+![image-20230304132435111](../assets/image-20230304132435111.png)
 
 `delegationTarget.UnprotectedHandler()`是未经过Filter包裹的。
 
 #### 路径2 Proxy机制
 
-![image-20230304132809610](./assets/image-20230304132809610.png)
+![image-20230304132809610](../assets/image-20230304132809610.png)
 
 #### 登录验证器的实现和加载
 
-![image-20230304133118801](./assets/image-20230304133118801.png)
+![image-20230304133118801](../assets/image-20230304133118801.png)
 
 #### 鉴权器的实现和加载
 
-![image-20230304133334912](./assets/image-20230304133334912.png)
+![image-20230304133334912](../assets/image-20230304133334912.png)

@@ -38,37 +38,37 @@
 
   `vendor/k8s.io/apiserver/pkg/server/handler.go`
 
-  [Director-ServeHTTP](https://pluviophile225.github.io/docs/apiserverhandler/)
+  [Director-ServeHTTP](https://pluviophile225.github.io/docs/directorservehttp/)
 
 - [x] ApiServerHandler的生成NewAPIServerHandler方法
 
   `vendor/k8s.io/apiserver/pkg/server/handler.go`
 
-  [ApiServerHandler](./kube-apiserver process/ApiServerHandler.md)
+  [ApiServerHandler](https://pluviophile225.github.io/docs/apiserverhandler/)
 
 - [x] Config结构体及相关内容
 
   `vendor/k8s.io/apiserver/pkg/server/config.go`
 
-  [Config](./kube-apiserver process/config_struct.md)
+  [Config](../kube-apiserver process/config_struct.md)
 
 - [x] 根据配置生成GenericAPIServer的New方法
 
   `vendor/k8s.io/apiserver/pkg/server/config.go`
 
-  [GenericAPIServer](./kube-apiserver process/GenericApiServer.md)
+  [GenericAPIServer](.../kube-apiserver process/GenericApiServer.md)
 
 - [x] 生成新配置的NewConfig方法
 
   `vendor/k8s.io/apiserver/pkg/server/handler.go`
 
-  [New-Config](./kube-apiserver process/new_config.md)
+  [New-Config](../kube-apiserver process/new_config.md)
 
 - [ ] NewConfig方法中的DefaultBuildHandlerChain方法
 
   `vendor/k8s.io/apiserver/pkg/server/handler.go`
 
-  [DefaultBuildHandlerChain](./kube-apiserver process/DefaultBuildHandlerChain.md)
+  [DefaultBuildHandlerChain](../kube-apiserver process/DefaultBuildHandlerChain.md)
 
 - [ ] 调用链生成方法CreateServerChain以及其他CreateAPIServer方法
 
@@ -78,7 +78,7 @@
 
 ## Reource Management
 
-![1592548255574-76775fac-1e22-466f-ace9-5bd31020ec59](./assets/1592548255574-76775fac-1e22-466f-ace9-5bd31020ec59-1678863414586-3.svg)
+![1592548255574-76775fac-1e22-466f-ace9-5bd31020ec59](../assets/1592548255574-76775fac-1e22-466f-ace9-5bd31020ec59-1678863414586-3.svg)
 
 ### 部分介绍
 
@@ -92,7 +92,7 @@ VersionedResourcesStorageMap 保存 Version -> Resource -> rest.Storage 的映�
 
 ### getResourceNamesForGroup
 
-![1592554580858-ae043a66-de8c-4d0b-874f-f9e023a3d67f](./assets/1592554580858-ae043a66-de8c-4d0b-874f-f9e023a3d67f-1678863718296-7.svg)
+![1592554580858-ae043a66-de8c-4d0b-874f-f9e023a3d67f](../assets/1592554580858-ae043a66-de8c-4d0b-874f-f9e023a3d67f-1678863718296-7.svg)
 
 #### 访问流程
 
@@ -120,7 +120,7 @@ VersionedResourcesStorageMap 保存 Version -> Resource -> rest.Storage 的映�
 
 ### APIGroupVersion
 
-![1592555577574-868ebc5d-8b93-4ec2-a461-ddd29663e0b6](./assets/1592555577574-868ebc5d-8b93-4ec2-a461-ddd29663e0b6.svg)
+![1592555577574-868ebc5d-8b93-4ec2-a461-ddd29663e0b6](../assets/1592555577574-868ebc5d-8b93-4ec2-a461-ddd29663e0b6.svg)
 
 #### 访问流程
 
@@ -134,7 +134,7 @@ VersionedResourcesStorageMap 保存 Version -> Resource -> rest.Storage 的映�
 
 ### Install APIGroup
 
-![1592556821146-dc48af5c-a7c7-4a77-9304-2f8abc9e79d9](./assets/1592556821146-dc48af5c-a7c7-4a77-9304-2f8abc9e79d9.svg)
+![1592556821146-dc48af5c-a7c7-4a77-9304-2f8abc9e79d9](../assets/1592556821146-dc48af5c-a7c7-4a77-9304-2f8abc9e79d9.svg)
 
 
 
@@ -191,11 +191,11 @@ VersionedResourcesStorageMap 保存 Version -> Resource -> rest.Storage 的映�
 
 ## DefaultStorageFactory
 
-![1593770916427-e4310919-3a8f-49fc-b42f-7d18b02692db](./assets/1593770916427-e4310919-3a8f-49fc-b42f-7d18b02692db.svg)
+![1593770916427-e4310919-3a8f-49fc-b42f-7d18b02692db](../assets/1593770916427-e4310919-3a8f-49fc-b42f-7d18b02692db.svg)
 
 下面是AddCohabitatingResources方法
 
-![1593777716392-7cfe1755-15ca-4778-91c4-5d5ed5da8679](./assets/1593777716392-7cfe1755-15ca-4778-91c4-5d5ed5da8679.svg)
+![1593777716392-7cfe1755-15ca-4778-91c4-5d5ed5da8679](../assets/1593777716392-7cfe1755-15ca-4778-91c4-5d5ed5da8679.svg)
 
 ### 访问流程
 
@@ -221,7 +221,7 @@ StorageFactory是为给定GroupResource定位存储的一个接口
 
 ## RESTOptionsGetter
 
-![1563887651494-a0fde962-a178-4a8f-b4d2-398556d19eba](./assets/1563887651494-a0fde962-a178-4a8f-b4d2-398556d19eba.svg)
+![1563887651494-a0fde962-a178-4a8f-b4d2-398556d19eba](../assets/1563887651494-a0fde962-a178-4a8f-b4d2-398556d19eba.svg)
 
 ### 访问流程
 
@@ -254,9 +254,9 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 ## Overview
 
-![1592139965090-e8825a80-b931-4f6c-b570-5b0f0a944847](./assets/1592139965090-e8825a80-b931-4f6c-b570-5b0f0a944847.svg)
+![1592139965090-e8825a80-b931-4f6c-b570-5b0f0a944847](../assets/1592139965090-e8825a80-b931-4f6c-b570-5b0f0a944847.svg)
 
-![1592140862365-28375074-10b8-4fa9-a5bb-3c5cf4100ee0](./assets/1592140862365-28375074-10b8-4fa9-a5bb-3c5cf4100ee0.svg)
+![1592140862365-28375074-10b8-4fa9-a5bb-3c5cf4100ee0](../assets/1592140862365-28375074-10b8-4fa9-a5bb-3c5cf4100ee0.svg)
 
 ### 访问流程
 
@@ -305,7 +305,7 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 ## Event main cycle
 
-![1592225423089-090e9cbc-40ec-48a0-a994-fdbf50a6c2a5](./assets/1592225423089-090e9cbc-40ec-48a0-a994-fdbf50a6c2a5.svg)
+![1592225423089-090e9cbc-40ec-48a0-a994-fdbf50a6c2a5](../assets/1592225423089-090e9cbc-40ec-48a0-a994-fdbf50a6c2a5.svg)
 
 ### 访问流程
 
@@ -335,7 +335,7 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 ## watchCache.processEvent
 
-![1592273904123-06fd84c4-4bf6-42b0-bdff-054307073286](./assets/1592273904123-06fd84c4-4bf6-42b0-bdff-054307073286.svg)
+![1592273904123-06fd84c4-4bf6-42b0-bdff-054307073286](../assets/1592273904123-06fd84c4-4bf6-42b0-bdff-054307073286.svg)
 
 ### 访问流程
 
@@ -360,7 +360,7 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 #### Cache Watcher与其他的交互
 
-![1592284099919-8f8cc11f-392e-453f-b206-3da6fb9e5e2a](./assets/1592284099919-8f8cc11f-392e-453f-b206-3da6fb9e5e2a.svg)
+![1592284099919-8f8cc11f-392e-453f-b206-3da6fb9e5e2a](../assets/1592284099919-8f8cc11f-392e-453f-b206-3da6fb9e5e2a.svg)
 
 ##### 访问流程
 
@@ -379,7 +379,7 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 #### Cache Watcher的流程
 
-![1592312338642-cd5353c8-1a51-4e53-b903-f9096047ddf3](./assets/1592312338642-cd5353c8-1a51-4e53-b903-f9096047ddf3.svg)
+![1592312338642-cd5353c8-1a51-4e53-b903-f9096047ddf3](../assets/1592312338642-cd5353c8-1a51-4e53-b903-f9096047ddf3.svg)
 
 ##### 访问流程
 
@@ -402,7 +402,7 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 ### Watch
 
-![1592369374933-84fc8527-4ee1-4e49-866d-a8659aa6aee2](./assets/1592369374933-84fc8527-4ee1-4e49-866d-a8659aa6aee2.svg)
+![1592369374933-84fc8527-4ee1-4e49-866d-a8659aa6aee2](../assets/1592369374933-84fc8527-4ee1-4e49-866d-a8659aa6aee2.svg)
 
 #### 访问流程
 
@@ -428,7 +428,7 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 #### 介绍
 
-![1592280499385-5c735314-95ce-4b62-ab51-f9700d6d154e](./assets/1592280499385-5c735314-95ce-4b62-ab51-f9700d6d154e.svg)
+![1592280499385-5c735314-95ce-4b62-ab51-f9700d6d154e](../assets/1592280499385-5c735314-95ce-4b62-ab51-f9700d6d154e.svg)
 
 ##### 访问流程
 
@@ -444,7 +444,7 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 #### Dispatch
 
-![1592315827499-99030bdc-f78e-4f7f-bd51-cc9d7805a91c](./assets/1592315827499-99030bdc-f78e-4f7f-bd51-cc9d7805a91c.svg)
+![1592315827499-99030bdc-f78e-4f7f-bd51-cc9d7805a91c](../assets/1592315827499-99030bdc-f78e-4f7f-bd51-cc9d7805a91c.svg)
 
 ##### 访问流程
 
@@ -464,7 +464,7 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 ### General Event
 
-![1592385511698-4e36bdc9-310e-4c9e-a620-ea557864611a](./assets/1592385511698-4e36bdc9-310e-4c9e-a620-ea557864611a.svg)
+![1592385511698-4e36bdc9-310e-4c9e-a620-ea557864611a](../assets/1592385511698-4e36bdc9-310e-4c9e-a620-ea557864611a.svg)
 
 #### 访问流程
 
@@ -487,7 +487,7 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 ## Overview
 
-![1592407127606-4dfc7cf1-1518-4a8e-acfd-22c082f20403](./assets/1592407127606-4dfc7cf1-1518-4a8e-acfd-22c082f20403.svg)
+![1592407127606-4dfc7cf1-1518-4a8e-acfd-22c082f20403](../assets/1592407127606-4dfc7cf1-1518-4a8e-acfd-22c082f20403.svg)
 
 ### 访问流程
 
@@ -511,7 +511,7 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 ## Server Chain
 
-![1592475398823-fdabd685-148f-4b12-9fab-ec50c42d2b9f](./assets/1592475398823-fdabd685-148f-4b12-9fab-ec50c42d2b9f.svg)
+![1592475398823-fdabd685-148f-4b12-9fab-ec50c42d2b9f](../assets/1592475398823-fdabd685-148f-4b12-9fab-ec50c42d2b9f.svg)
 
 ### 访问流程
 
@@ -548,7 +548,7 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 ## workflow
 
-![1593864047931-b11473ee-9e10-4bdd-a22d-ea5eec4cfc16](./assets/1593864047931-b11473ee-9e10-4bdd-a22d-ea5eec4cfc16.svg)
+![1593864047931-b11473ee-9e10-4bdd-a22d-ea5eec4cfc16](../assets/1593864047931-b11473ee-9e10-4bdd-a22d-ea5eec4cfc16.svg)
 
 ### 访问流程
 
@@ -581,9 +581,9 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 ## Rebuild Service Cache
 
-![1593877084319-9f1bf10a-1b5e-4dda-b537-e896270993f5](./assets/1593877084319-9f1bf10a-1b5e-4dda-b537-e896270993f5.svg)
+![1593877084319-9f1bf10a-1b5e-4dda-b537-e896270993f5](../assets/1593877084319-9f1bf10a-1b5e-4dda-b537-e896270993f5.svg)
 
-![1593877726463-c4380b34-65e8-472c-865e-d68d6cd0f1bc](./assets/1593877726463-c4380b34-65e8-472c-865e-d68d6cd0f1bc.svg)
+![1593877726463-c4380b34-65e8-472c-865e-d68d6cd0f1bc](../assets/1593877726463-c4380b34-65e8-472c-865e-d68d6cd0f1bc.svg)
 
 ### 访问流程
 
@@ -609,7 +609,7 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 ## Server Handler
 
-![1593169014388-e194c0f6-47ed-443b-9495-035f818c62ee](./assets/1593169014388-e194c0f6-47ed-443b-9495-035f818c62ee.svg)
+![1593169014388-e194c0f6-47ed-443b-9495-035f818c62ee](../assets/1593169014388-e194c0f6-47ed-443b-9495-035f818c62ee.svg)
 
 ### 访问流程
 
@@ -630,7 +630,7 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 ## RESTStorageProvider
 
-![1593835018963-0ed115b4-d5a5-4c07-954f-401f6e4ccee7](./assets/1593835018963-0ed115b4-d5a5-4c07-954f-401f6e4ccee7.svg)
+![1593835018963-0ed115b4-d5a5-4c07-954f-401f6e4ccee7](../assets/1593835018963-0ed115b4-d5a5-4c07-954f-401f6e4ccee7.svg)
 
 ### 访问流程
 
@@ -655,13 +655,13 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 ### Controller Runner
 
-![1593847762097-5f9281b7-28fb-4704-8eac-d42ac1a1a4d4](./assets/1593847762097-5f9281b7-28fb-4704-8eac-d42ac1a1a4d4.svg)
+![1593847762097-5f9281b7-28fb-4704-8eac-d42ac1a1a4d4](../assets/1593847762097-5f9281b7-28fb-4704-8eac-d42ac1a1a4d4.svg)
 
 ​        Listener 只有一个 Enqueue 方法，并通过 Notifier 注册到某处。ControllerRunner 控制某一任务的执行，执行过程中如果需要通知外部，则通过已注册的 Listener 列表，广播（或单播）至目标方任务队列。队列拥有方，可能是一个正在等待队列输出的任务。
 
 ​        通过这样的设计，利用队列特性，将两个关联的任务隔离开来，划分好各自边界。Listener 接口的 Enqueue 方法没有参数，因此，Listener 的实现更关注于事件发生，而不是事件内容的具体细节，这种思路值得借鉴。
 
-![1593852626999-7643cd52-ca7b-4e1e-8e15-9cefd0323523](./assets/1593852626999-7643cd52-ca7b-4e1e-8e15-9cefd0323523.svg)
+![1593852626999-7643cd52-ca7b-4e1e-8e15-9cefd0323523](../assets/1593852626999-7643cd52-ca7b-4e1e-8e15-9cefd0323523.svg)
 
 
 
@@ -704,7 +704,7 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 ### 关系梳理
 
-![1592740270209-a1818db6-411a-4969-a08c-7df6b257a5ee](./assets/1592740270209-a1818db6-411a-4969-a08c-7df6b257a5ee.svg)
+![1592740270209-a1818db6-411a-4969-a08c-7df6b257a5ee](../assets/1592740270209-a1818db6-411a-4969-a08c-7df6b257a5ee.svg)
 
 #### 访问流程
 
@@ -737,9 +737,9 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 ### Storage
 
-![1592745940649-669bba58-1f46-464f-88dc-e5a922e09900](./assets/1592745940649-669bba58-1f46-464f-88dc-e5a922e09900.svg)
+![1592745940649-669bba58-1f46-464f-88dc-e5a922e09900](../assets/1592745940649-669bba58-1f46-464f-88dc-e5a922e09900.svg)
 
-![1592796423999-82105877-dc1c-4d55-b46a-865ddb381251](./assets/1592796423999-82105877-dc1c-4d55-b46a-865ddb381251.svg)
+![1592796423999-82105877-dc1c-4d55-b46a-865ddb381251](../assets/1592796423999-82105877-dc1c-4d55-b46a-865ddb381251.svg)
 
 #### 访问流程
 
@@ -769,7 +769,7 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 ### Landscape
 
-![1592815546753-8daf8dd1-d6de-418d-88fc-6bc9a9994e5e](./assets/1592815546753-8daf8dd1-d6de-418d-88fc-6bc9a9994e5e.svg)
+![1592815546753-8daf8dd1-d6de-418d-88fc-6bc9a9994e5e](../assets/1592815546753-8daf8dd1-d6de-418d-88fc-6bc9a9994e5e.svg)
 
 #### 访问流程
 
@@ -788,7 +788,7 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 ### Clientset
 
-![1592815426729-74e231b4-ed2f-4ae8-b16c-b1e07c5912dc](./assets/1592815426729-74e231b4-ed2f-4ae8-b16c-b1e07c5912dc.svg)
+![1592815426729-74e231b4-ed2f-4ae8-b16c-b1e07c5912dc](../assets/1592815426729-74e231b4-ed2f-4ae8-b16c-b1e07c5912dc.svg)
 
 #### 访问流程
 
@@ -817,7 +817,7 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 #### Relationship
 
-![1592821262044-22a9e230-f011-4646-a019-2ea6028b7c6a](./assets/1592821262044-22a9e230-f011-4646-a019-2ea6028b7c6a.svg)
+![1592821262044-22a9e230-f011-4646-a019-2ea6028b7c6a](../assets/1592821262044-22a9e230-f011-4646-a019-2ea6028b7c6a.svg)
 
 ##### 访问流程
 
@@ -845,7 +845,7 @@ Etcd 配置与 StorageFactory 最终都汇入 RESTOptionsGetter 中。RESTOption
 
 #### Add Informers
 
-![1592823100356-cf3093fc-c656-43f8-b049-2c26f866a37d](./assets/1592823100356-cf3093fc-c656-43f8-b049-2c26f866a37d.svg)
+![1592823100356-cf3093fc-c656-43f8-b049-2c26f866a37d](../assets/1592823100356-cf3093fc-c656-43f8-b049-2c26f866a37d.svg)
 
 ##### 访问流程
 

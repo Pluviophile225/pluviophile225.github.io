@@ -542,7 +542,7 @@ public:
 ** 这题思路比较难
 ```
 
-![image-20230129184911080](./assets/image-20230129184911080.png)
+![image-20230129184911080](../assets/image-20230129184911080.png)
 
 ```c++
 class Solution {
@@ -591,7 +591,7 @@ public:
 **
 ```
 
-![image-20230129190943143](./assets/image-20230129190943143.png)
+![image-20230129190943143](../assets/image-20230129190943143.png)
 
 ```c++
 class Solution {
