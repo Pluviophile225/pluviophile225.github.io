@@ -38,7 +38,7 @@
 
   `vendor/k8s.io/apiserver/pkg/server/handler.go`
 
-  [Director-ServeHTTP](https://pluviophile225.github.io/docs/directorservehttp/)
+  [Director-ServeHTTP](https://pluviophile225.github.io/docs/director-servehttp/)
 
 - [x] ApiServerHandler的生成NewAPIServerHandler方法
 
@@ -50,25 +50,25 @@
 
   `vendor/k8s.io/apiserver/pkg/server/config.go`
 
-  [Config](../kube-apiserver process/config_struct.md)
+  [Config](https://pluviophile225.github.io/docs/config_struct/)
 
 - [x] 根据配置生成GenericAPIServer的New方法
 
   `vendor/k8s.io/apiserver/pkg/server/config.go`
 
-  [GenericAPIServer](.../kube-apiserver process/GenericApiServer.md)
+  [GenericAPIServer](https://pluviophile225.github.io/docs/genericapiserver/)
 
 - [x] 生成新配置的NewConfig方法
 
   `vendor/k8s.io/apiserver/pkg/server/handler.go`
 
-  [New-Config](../kube-apiserver process/new_config.md)
+  [New-Config](https://pluviophile225.github.io/docs/new_config/)
 
 - [ ] NewConfig方法中的DefaultBuildHandlerChain方法
 
   `vendor/k8s.io/apiserver/pkg/server/handler.go`
 
-  [DefaultBuildHandlerChain](../kube-apiserver process/DefaultBuildHandlerChain.md)
+  [DefaultBuildHandlerChain](https://pluviophile225.github.io/docs/defaultbuildhandlerchain/)
 
 - [ ] 调用链生成方法CreateServerChain以及其他CreateAPIServer方法
 
