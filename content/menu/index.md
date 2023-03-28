@@ -9,10 +9,13 @@ headless: true
 
 - **k8s相关**
   - [kubernetes基本概念]({{< relref "/docs/kubernetes基本概念.md" >}})
+  
   - [read]({{< relref "/docs/read.md" >}})
 <br />
 
-- **CNI**
+- **系统**
+  - [CNI]({{< relref "/docs/CNI.md" >}})
+  - [Linux]({{< relref "/docs/Linux.md" >}})
 <br />
 
 - **算法**
