@@ -19,5 +19,5 @@ headless: true
 <br />
 
 - **算法**
-- [LeetCode]({{< relref "/docs/LeetCode.md" >}})
+  - [LeetCode]({{< relref "/docs/LeetCode.md" >}})
 <br />
