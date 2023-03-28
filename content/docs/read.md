@@ -8,7 +8,7 @@
 
 - [x] [How To Call Kubernetes API using Simple HTTP Client](https://iximiuz.com/en/posts/kubernetes-api-call-simple-http-client/)
 
-  [笔记](./read/note_K8S_API_call.md)
+  [笔记](https://pluviophile225.github.io/docs/note_k8s_api_call/)
 
 - [ ] 
 
