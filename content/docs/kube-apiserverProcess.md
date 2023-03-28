@@ -38,7 +38,7 @@
 
   `vendor/k8s.io/apiserver/pkg/server/handler.go`
 
-  [Director-ServeHTTP](./kube-apiserver process/Director-ServeHTTP.md)
+  [Director-ServeHTTP](https://pluviophile225.github.io/docs/apiserverhandler/)
 
 - [x] ApiServerHandler的生成NewAPIServerHandler方法
 
