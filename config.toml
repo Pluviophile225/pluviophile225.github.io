@@ -3,3 +3,16 @@ languageCode = 'en-us'
 title = 'pluviophile225'
 BookSection = 'docs'
 theme = "hugo-book"
+
+
+[module]
+[[module.imports]]
+path = 'github.com/alex-shpak/hugo-book'
+
+
+[menu]
+# [[menu.before]]
+[[menu.after]]
+  name = "Github"
+  url = "https://github.com/Pluviophile225"
+  weight = 10
