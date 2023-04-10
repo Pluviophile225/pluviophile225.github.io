@@ -18,6 +18,10 @@ headless: true
   - [Linux]({{< relref "/docs/Linux.md" >}})
 <br />
 
+- **开源**
+  - [OpenYurt-device]({{< relref "/docs/openyurt_device_controller.md" >}})
+<br />
+
 - **算法**
   - [LeetCode]({{< relref "/docs/LeetCode.md" >}})
 <br />
