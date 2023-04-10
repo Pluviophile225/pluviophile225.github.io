@@ -1,10 +1,10 @@
-# 2021/2/3
+## 2021/2/3
 
-## Crd
+### Crd
 
-### device
+#### device
 
-#### DeviceSpec
+##### DeviceSpec
 
 ```go
 // DeviceSpec defines the desired state of Device
@@ -41,7 +41,7 @@ type DeviceSpec struct {
 }
 ```
 
-#### DeviceStatus
+##### DeviceStatus
 
 ```go
 // DeviceStatus defines the observed state of Device
@@ -64,7 +64,7 @@ type DeviceStatus struct {
 }
 ```
 
-#### DesiredPropertyState
+##### DesiredPropertyState
 
 ```go
 type DesiredPropertyState struct {
@@ -77,7 +77,7 @@ type DesiredPropertyState struct {
 }
 ```
 
-#### ActualPropertyState
+##### ActualPropertyState
 
 ```go
 type ActualPropertyState struct {
@@ -90,9 +90,9 @@ type ActualPropertyState struct {
 }
 ```
 
-### deviceprofile
+#### deviceprofile
 
-#### DeviceResource
+##### DeviceResource
 
 ```go
 type DeviceResource struct {
@@ -108,7 +108,7 @@ type DeviceResource struct {
 }
 ```
 
-#### ProfileProperty
+##### ProfileProperty
 
 ```go
 type ProfileProperty struct {
@@ -119,7 +119,7 @@ type ProfileProperty struct {
 }
 ```
 
-#### PropertyValue
+##### PropertyValue
 
 ```go
 type PropertyValue struct {
@@ -171,7 +171,7 @@ type PropertyValue struct {
 }
 ```
 
-#### Units
+##### Units
 
 ```go
 type Units struct {
@@ -181,7 +181,7 @@ type Units struct {
 }
 ```
 
-#### Command
+##### Command
 
 ```go
 type Command struct {
@@ -200,7 +200,7 @@ type Command struct {
 }
 ```
 
-#### Action
+##### Action
 
 ```go
 type Action struct {
@@ -216,7 +216,7 @@ type Action struct {
 }
 ```
 
-#### Put
+##### Put
 
 ```go
 type Put struct {
@@ -227,7 +227,7 @@ type Put struct {
 }
 ```
 
-#### Get
+##### Get
 
 ```go
 type Get struct {
@@ -236,7 +236,7 @@ type Get struct {
 }
 ```
 
-#### Response
+##### Response
 
 ```go
 // Response for a Get or Put request to a service
@@ -251,7 +251,7 @@ type Response struct {
 }
 ```
 
-#### ResourceOperation
+##### ResourceOperation
 
 ```go
 type ResourceOperation struct {
@@ -271,7 +271,7 @@ type ResourceOperation struct {
 }
 ```
 
-#### ProfileResource
+##### ProfileResource
 
 ```go
 type ProfileResource struct {
@@ -281,7 +281,7 @@ type ProfileResource struct {
 }
 ```
 
-#### DeviceProfileSpec
+##### DeviceProfileSpec
 
 ```go
 type DeviceProfileSpec struct {
@@ -306,7 +306,7 @@ type DeviceProfileSpec struct {
 }
 ```
 
-#### DeviceProfileStatus
+##### DeviceProfileStatus
 
 ```go
 type DeviceProfileStatus struct {
@@ -317,9 +317,9 @@ type DeviceProfileStatus struct {
 }
 ```
 
-### deviceservice
+#### deviceservice
 
-#### Addressable
+##### Addressable
 
 ```go
 type Addressable struct {
@@ -359,7 +359,7 @@ type Addressable struct {
 }
 ```
 
-#### DeviceServiceSpec
+##### DeviceServiceSpec
 
 ```go
 type DeviceServiceSpec struct {
@@ -393,7 +393,7 @@ type DeviceServiceSpec struct {
 }
 ```
 
-#### DeviceServiceStatus
+##### DeviceServiceStatus
 
 ```go
 type DeviceServiceStatus struct {
@@ -402,9 +402,9 @@ type DeviceServiceStatus struct {
 }
 ```
 
-### valueDescriptor
+#### valueDescriptor
 
-#### ValueDescriptorSpec
+##### ValueDescriptorSpec
 
 ```go
 type ValueDescriptorSpec struct {
@@ -425,7 +425,7 @@ type ValueDescriptorSpec struct {
 }
 ```
 
-#### ValueDescriptorStatus
+##### ValueDescriptorStatus
 
 ```go
 type ValueDescriptorStatus struct {
@@ -435,9 +435,9 @@ type ValueDescriptorStatus struct {
 }
 ```
 
-## Controller
+### Controller
 
-### device_controller
+#### device_controller
 
 ```go
 func (r *DeviceReconciler) Reconcile(
@@ -552,7 +552,7 @@ func (r *DeviceReconciler) Reconcile(
 }
 ```
 
-### deviceprofile_controller
+#### deviceprofile_controller
 
 ```go
 func (r *DeviceProfileReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
@@ -589,7 +589,7 @@ func (r *DeviceProfileReconciler) Reconcile(ctx context.Context, req ctrl.Reques
 }
 ```
 
-### deviceservice_controller
+#### deviceservice_controller
 
 ```go
 func (r *DeviceServiceReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
@@ -644,7 +644,7 @@ func (r *DeviceServiceReconciler) Reconcile(ctx context.Context, req ctrl.Reques
 }
 ```
 
-### valuedescriptor_controller
+#### valuedescriptor_controller
 
 ```go
 func (r *ValueDescriptorReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
@@ -683,9 +683,9 @@ func (r *ValueDescriptorReconciler) Reconcile(ctx context.Context, req ctrl.Requ
 }
 ```
 
-## Syncer
+### Syncer
 
-### device_syncer
+#### device_syncer
 
 ```go
 func (ds *DeviceSyncer) Run(stop <-chan struct{}) {
@@ -727,7 +727,7 @@ func (ds *DeviceSyncer) Run(stop <-chan struct{}) {
 }
 ```
 
-### deviceprofile_syncer
+#### deviceprofile_syncer
 
 ```go
 func (ds *DeviceProfileSyncer) Run(stop <-chan struct{}) {
@@ -764,7 +764,7 @@ func (ds *DeviceProfileSyncer) Run(stop <-chan struct{}) {
 }
 ```
 
-### deviceservice_syncer
+#### deviceservice_syncer
 
 ```go
 func (ds *DeviceServiceSyncer) Run(stop <-chan struct{}) {
@@ -802,9 +802,9 @@ func (ds *DeviceServiceSyncer) Run(stop <-chan struct{}) {
 
 ```
 
-# 2021/9/7
+## 2021/9/7
 
-## Crd修改
+### Crd修改
 
 > DeviceProfileSpec删除EdgeXLabels，添加NodePool、Labels
 
@@ -836,7 +836,7 @@ type DeviceProfileStatus struct {
 }
 ```
 
-## deviceprofile_client
+### deviceprofile_client
 
 ```go
 // 这个定义了这个client的地址、端口
@@ -978,7 +978,7 @@ func (cdc *EdgexDeviceProfile) Delete(ctx context.Context, name string, opts dev
 }
 ```
 
-## deviceprofile_controller
+### deviceprofile_controller
 
 ```go
 // DeviceProfileReconciler reconciles a DeviceProfile object
@@ -1073,7 +1073,7 @@ func (r *DeviceProfileReconciler) Reconcile(ctx context.Context, req ctrl.Reques
 }
 ```
 
-## deviceprofile_syncer
+### deviceprofile_syncer
 
 ```go
 func (ds *DeviceProfileSyncer) Run(stop <-chan struct{}) {
@@ -1227,9 +1227,9 @@ func deleteDeviceProfile(log logr.Logger, cli client.Client, kubeDevs []devicev1
 
 ```
 
-# 2021/9/21
+## 2021/9/21
 
-## Crd修改
+### Crd修改
 
 > DeviceServiceSpec删除Id、LastConnected、LastReported属性，添加Managed、NodePool属性
 
@@ -1282,7 +1282,7 @@ func (ds *DeviceService) GetConditions() clusterv1.Conditions {
 }
 ```
 
-## deviceservice_client
+### deviceservice_client
 
 ```go
 type EdgexDeviceServiceClient struct {
@@ -1543,7 +1543,7 @@ func (eds *EdgexDeviceServiceClient) ListAddressables(ctx context.Context, optio
 }
 ```
 
-## deviceservice_controller
+### deviceservice_controller
 
 ```go
 func (r *DeviceServiceReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
@@ -1791,7 +1791,7 @@ func (r *DeviceServiceReconciler) reconcileUpdateDeviceService(ctx context.Conte
 }
 ```
 
-## deviceservice_syncer
+### deviceservice_syncer
 
 ```go
 func (ds *DeviceServiceSyncer) Run(stop <-chan struct{}) {
@@ -1998,9 +1998,9 @@ func (ds *DeviceServiceSyncer) completeUpdateContent(kubeDS *devicev1alpha1.Devi
 
 ```
 
-# 2021/9/22
+## 2021/9/22
 
-## Crd修改
+### Crd修改
 
 > DeviceSpec添加了Managed和NodePool两个字段
 
@@ -2063,7 +2063,7 @@ type DeviceStatus struct {
 }
 ```
 
-## device_client
+### device_client
 
 ```go
 // Create function sends a POST request to EdgeX to add a new device
@@ -2392,7 +2392,7 @@ func (efc *EdgexDeviceClient) GetCommandResponseByName(deviceName string) (
 }
 ```
 
-## device_controller
+### device_controller
 
 ```go
 //+kubebuilder:rbac:groups=device.openyurt.io,resources=devices,verbs=get;list;watch;create;update;patch;delete
@@ -2699,7 +2699,7 @@ func (r *DeviceReconciler) reconcileDeviceProperties(d *devicev1alpha1.Device, d
 
 ```
 
-## device_syncer
+### device_syncer
 
 ```go
 
