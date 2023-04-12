@@ -19,7 +19,8 @@ headless: true
 <br />
 
 - **开源**
-  - [OpenYurt-device]({{< relref "/docs/openyurt_device_controller.md" >}})
+  - **OpenYurt**
+    - [OpenYurt-device]({{< relref "/docs/openyurt_device_controller.md" >}})
 <br />
 
 - **算法**
