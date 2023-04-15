@@ -21,6 +21,7 @@ headless: true
 - **开源**
   - **OpenYurt**
     - [OpenYurt-device]({{< relref "/docs/openyurt_device_controller.md" >}})
+    - [Edgex-device-sdk]({{< relref "/docs/edgex_device_skd_go.md" >}})
 <br />
 
 - **算法**
