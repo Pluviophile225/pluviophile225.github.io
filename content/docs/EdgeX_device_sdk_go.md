@@ -2103,7 +2103,8 @@ func (b *Bootstrap) BootstrapHandler(ctx context.Context, wg *sync.WaitGroup, _ 
 		s.lc.Errorf("Failed to load devices: %s", edgexErr.Error())
 		return false
 	}
-
+	
+    // 加载ProvisionWatcher
 	edgexErr = provision.LoadProvisionWatchers(s.config.Device.ProvisionWatchersDir, dic)
 	if edgexErr != nil {
 		s.lc.Errorf("Failed to load provision watchers: %s", edgexErr.Error())
@@ -2362,3 +2363,35 @@ func (h StartMessage) BootstrapHandler(
 }
 ```
 
+**总结一下所有handler的作用功能**
+
+1. httpServer.BootstrapHandler 主要负责注册TimeoutHandler、RequestLimitMiddleware、ProcessCORS handlers这些通用handler。
+2. messageBusBootstrapHandler做的工作如下：
+
+1. 1. 创建一个messageBus客户端
+   2. 进行订阅，异步处理command请求（这个是由内部的application进行getcommand和setcommand处理的）
+   3. 对metasystemevent的处理，分别处理deviceSystemEventAction、deviceProfileSystemEventAction、provisionWatcherSystemEventAction、deviceServiceSystemEventAction。这里对core-metadata进行了订阅。（虽然这里有实现了，但是好像还没有开始使用，因为在edgex官网上这条线是黄色的，是future时候使用的）
+   4. 使用messagebus订阅设备的检验
+
+1. handlers.NewServiceMetrics(ds.ServiceName).BootstrapHandler：注册metrics reporter and manager，按照配置的interval，reporter定期上报数据。但是这里没有注册metrics（在下面的handler中进行注册），只是将manager run起来了，reporter的上报是发给messageBus的。
+2. handlers.NewClientsBootstrap().BootstrapHandler创建各种和其他服务的客户端。包括了：
+
+1. 1. CoreData相关 -> EventClient （只有Rest）
+   2. CoreMetaData相关 -> DeviceClient （只有Rest）、 DeviceServiceClient（只有Rest）、DeviceProfileClient（只有Rest）、ProvisionWatcherClient（只有Rest）
+   3. CoreCommand相关 -> CommandClient （Rest 和 messageBus）
+   4. SupportNotifications相关 -> NotificationClient （只有Rest）、SubscriptionClient（只有Rest）
+   5. SupportScheduler相关 -> IntervalClient（只有Rest）、IntervalActionClient（只有Rest）
+
+1. autoevent.BootstrapHandler 定义了autoEvent的manager，event的send是发给messageBus的（这里没有启动，留给后面的handler使用的）
+2. NewBootstrap(router).BootstrapHandler 进行最后的初始化、加载、运行前面准备好的东西（autoevent的manager和注册需要上报的metric）
+
+1. 1. 初始化路由：common、secret、discovery、validate、device command、callback相关的url
+   2. 初始化cache：device、profile、provision watcher
+   3. processAsyncResults异步读取，处理数据传到core-data之前，有的要做转换的地方。AsyncBufferSize > 1 乱序，AsyncBufferSize = 1，顺序。
+   4. processAsyncFilterAndAdd处理添加动态设备
+   5. 初始化、自己作为deviceservice、加载profile、加载device、加载provisionWatcher
+   6. 启动之前设置好的autoevent的manager
+   7. 为之前设置好的metricmanager注册两个metric（Event / Reading sent）
+
+1. autodiscovery.BootstrapHandler：自动设备发现相关的启动器，调用驱动实现的Discover()方法。
+2. handlers.NewStartMessage(serviceName, serviceVersion).BootstrapHandler：打印整个驱动的启动提示信息，表示驱动起来了。
