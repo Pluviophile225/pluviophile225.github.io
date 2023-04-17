@@ -22,6 +22,7 @@ headless: true
   - **OpenYurt**
     - [OpenYurt-device]({{< relref "/docs/openyurt_device_controller.md" >}})
     - [Edgex-device-sdk]({{< relref "/docs/edgex_device_sdk_go.md" >}})
+    - [Edgex-messageBus]({{< relref "/docs/edgex_messagebus.md" >}})
 <br />
 
 - **算法**
