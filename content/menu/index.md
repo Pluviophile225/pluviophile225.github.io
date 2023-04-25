@@ -15,7 +15,7 @@ headless: true
 
 - **系统**
   - [CNI]({{< relref "/docs/CNI.md" >}})
-  - [CNI_HAND]({{< relref "/docs/CNI_Network_Stack.md" >}})
+  - [Hand-CNI]({{< relref "/docs/CNI_Network_Stack.md" >}})
   - [Linux]({{< relref "/docs/Linux.md" >}})
 <br />
 
