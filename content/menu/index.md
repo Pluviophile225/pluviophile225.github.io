@@ -17,6 +17,7 @@ headless: true
   - [CNI]({{< relref "/docs/CNI.md" >}})
   - [Hand-CNI]({{< relref "/docs/CNI_Network_Stack.md" >}})
   - [Flannel]({{< relref "/docs/CNI_Flannel.md" >}})
+  - [Calico-Basic]({{< relref "/docs/CNI_Calico_Basic.md" >}})
   - [Linux]({{< relref "/docs/Linux.md" >}})
 <br />
 
