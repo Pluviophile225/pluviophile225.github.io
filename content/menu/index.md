@@ -19,6 +19,7 @@ headless: true
   - [Flannel]({{< relref "/docs/CNI_Flannel.md" >}})
   - [Calico-Basic]({{< relref "/docs/CNI_Calico_Basic.md" >}})
   - [Calico-Advanced]({{< relref "/docs/CNI_Calico_Advanced.md" >}})
+  - [Cilium]({{< relref "/docs/CNI_Cilium.md" >}})
   - [Linux]({{< relref "/docs/Linux.md" >}})
 <br />
 
