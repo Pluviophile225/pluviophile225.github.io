@@ -32,5 +32,4 @@ headless: true
 
 - **算法**
   - [LeetCode]({{< relref "/docs/LeetCode.md" >}})
-  - [测试] ({{< relref "/docs/test.md" >}})
 <br />
