@@ -9,7 +9,8 @@ headless: true
 
 - **k8s相关**
   - [kubernetes基本概念]({{< relref "/docs/kubernetes基本概念.md" >}})
-  - [基本操作]({{< relref "/docs/k8s基操.md" >}})
+  - [基本操作12]({{< relref "/docs/k8s基操.md" >}})
+  - [基本操作3]({{< relref "/docs/基础速学3.md" >}})
   - [clinet-go]({{< relref "/docs/client-go.md" >}})
   - [read]({{< relref "/docs/read.md" >}})
   <br />
