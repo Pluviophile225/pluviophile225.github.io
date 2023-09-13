@@ -14,7 +14,11 @@ headless: true
   - [clinet-go]({{< relref "/docs/client-go.md" >}})
   - [read]({{< relref "/docs/read.md" >}})
   <br />
-  
+
+- **Operator**
+  - [Operator实战1]({{< relref "/docs/operator_first.md" >}})
+  <br />  
+
 - **系统**
   - [CNI]({{< relref "/docs/CNI.md" >}})
   - [Hand-CNI]({{< relref "/docs/CNI_Network_Stack.md" >}})
