@@ -17,6 +17,7 @@ headless: true
 
 - **Operator**
   - [Operator实战1]({{< relref "/docs/operator_first.md" >}})
+  - [Operator实战2]({{< relref "/docs/operator_second.md" >}})
   <br />  
 
 - **系统**
