@@ -9,12 +9,19 @@ headless: true
 
 - **k8s相关**
   - [kubernetes基本概念]({{< relref "/docs/kubernetes基本概念.md" >}})
+  
   - [基本操作12]({{< relref "/docs/k8s基操.md" >}})
+  
   - [基本操作3]({{< relref "/docs/基础速学3.md" >}})
+  
   - [clinet-go]({{< relref "/docs/client-go.md" >}})
+  
   - [read]({{< relref "/docs/read.md" >}})
+  
+  - [informer]({{< relref "/docs/informer.md" >}})
+  
   <br />
-
+  
 - **Operator**
   - [Operator实战1]({{< relref "/docs/operator_first.md" >}})
   - [Operator实战2]({{< relref "/docs/operator_second.md" >}})
