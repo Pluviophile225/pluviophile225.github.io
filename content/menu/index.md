@@ -19,6 +19,8 @@ headless: true
   - [read]({{< relref "/docs/read.md" >}})
   
   - [informer]({{< relref "/docs/informer.md" >}})
+
+  - [controller]({{< relref "/docs/controller.md" >}})
   
   <br />
   
@@ -42,6 +44,7 @@ headless: true
     - [OpenYurt-device]({{< relref "/docs/openyurt_device_controller.md" >}})
     - [Edgex-device-sdk]({{< relref "/docs/edgex_device_sdk_go.md" >}})
     - [Edgex-messageBus]({{< relref "/docs/edgex_messagebus.md" >}})
+    - [PR1]({{< relref "/docs/20230825-use-message-bus-instead-of-REST-to-communicate-with-EdgeX.md" >}})
     <br />
 
 - **算法**
